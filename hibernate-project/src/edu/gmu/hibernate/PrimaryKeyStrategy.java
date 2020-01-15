@@ -22,9 +22,9 @@ public class PrimaryKeyStrategy {
 			/* use the session object to save Java object*/
 			// create three student objects.
 			System.out.println("Creating three student objects ... ");
-			Student aStudent1 = new Student("Abraham", "Lee", "abraham@gmu.edu");
-			Student aStudent2 = new Student("Isaac", "Kim", "isaac@gmu.edu");
-			Student aStudent3 = new Student("Jacob", "Park", "jacob@gmu.edu");
+			Student aStudent1 = new Student("Joseph", "Lee", "joseph@gmu.edu");
+			Student aStudent2 = new Student("Job", "Kim", "job@gmu.edu");
+			Student aStudent3 = new Student("Isaiah", "Park", "isaiah@gmu.edu");
 			
 			// start transaction.
 			session.beginTransaction();
