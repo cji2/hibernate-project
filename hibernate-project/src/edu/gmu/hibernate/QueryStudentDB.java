@@ -33,7 +33,7 @@ public class QueryStudentDB {
 			// display the students.
 			displayStudents(Students);
 			
-			// query students: lastName='Ji'
+			// query students: lastName='Jeon'
 			Students = session
 					.createQuery("from Student s where s.lastName='Jeon'")
 					.getResultList();
@@ -42,7 +42,7 @@ public class QueryStudentDB {
 			System.out.println("\nStudents who have the last name of 'Jeon': ");
 			displayStudents(Students);
 			
-			// query students: lastName='Ji'
+			// query students: lastName='Lee' or firstName='Paul'
 			Students = session
 					.createQuery("from Student s where s.lastName='Lee'" +
 							" OR s.firstName='Paul'")
@@ -52,7 +52,16 @@ public class QueryStudentDB {
 			System.out.println("\nStudents who have the last name of 'Lee' or " +
 								"the first name of 'Paul'");
 			displayStudents(Students);
-						
+
+			// query students: email has 'gmu.edu'
+			Students = session
+					.createQuery("from Student s where s.email LIKE '%gmu.edu'")
+					.getResultList();
+			
+			// display the students.
+			System.out.println("\nStudents who have email server address with 'gmu.edu'");
+			displayStudents(Students);
+			
 			// commit the transaction.
 			session.getTransaction().commit();
 			System.out.println("Done!");
