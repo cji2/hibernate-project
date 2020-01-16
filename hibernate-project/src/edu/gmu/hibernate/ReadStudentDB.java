@@ -45,7 +45,7 @@ public class ReadStudentDB {
 			session = factory.getCurrentSession();
 			session.beginTransaction();
 			
-			// retrieve a student base don the id: primary key.
+			// retrieve a student based on the id: primary key.
 			System.out.println("\nGetting student with id: " + id);
 			Student theStudent = session.get(Student.class, id);
 			
