@@ -23,7 +23,7 @@ public class UpdateStudentDB {
 			// start transaction.
 			session.beginTransaction();
 			
-			// retrieve a student base don the id: primary key.
+			// retrieve a student based on the id: primary key.
 			int id = 3;
 			
 			System.out.println("\nGetting student with id: " + id);
@@ -34,9 +34,28 @@ public class UpdateStudentDB {
 			 * since theStudent is already persistent data. 
 			 * so, theStudent.setFirstName makes DB updated and save new data.
 			 */
+			System.out.println("Updating student ... ");
 			theStudent.setFirstName("John");
 			theStudent.setEmail("john@gmail.com");
 			
+			System.out.println("\nGet complete: " + theStudent);
+			
+			// commit the transaction.
+			session.getTransaction().commit();
+			
+			// now get a new session and start transaction.
+			session = factory.getCurrentSession();
+			session.beginTransaction();
+			
+			// update email address for a student with id=2
+			System.out.println("Update email address for a student with id=2");
+			session
+				.createQuery("update Student s set email='matthew@gmail.com' where s.id=2")
+				.executeUpdate();
+
+			id = 2;
+			System.out.println("\nGetting student with id: " + id);
+			theStudent = session.get(Student.class, id);
 			System.out.println("\nGet complete: " + theStudent);
 			
 			// commit the transaction.
