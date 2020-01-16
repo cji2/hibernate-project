@@ -59,7 +59,7 @@ public class QueryStudentDB {
 					.getResultList();
 			
 			// display the students.
-			System.out.println("\nStudents who have email server address with 'gmu.edu'");
+			System.out.println("\nStudents whose email ends with 'gmu.edu'");
 			displayStudents(Students);
 			
 			// commit the transaction.
